@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/LinearLayout_list_item_temperature"
+    android:orientation="horizontal"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="8dp">
+    <TextView
+        android:textColor="@color/selected_time_text"
+        android:layout_marginLeft="10dp"
+        android:id="@+id/temperature_data"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Temperature"/>
+    <Space
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1" />
+    <TextView
+        android:layout_marginRight="10px"
+        android:id="@+id/temperature_insert_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Insert_time"/>
+</LinearLayout>
