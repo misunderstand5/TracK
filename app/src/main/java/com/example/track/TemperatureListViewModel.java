@@ -18,11 +18,12 @@ import java.sql.Statement;
 import java.util.List;
 
 public class TemperatureListViewModel extends ViewModel {
+    private static final String TAG1 ="TemperatureListViewModel";
     //变量定义
     private List<Safety> mSafetyList;
-    private String str;
+    private String curTemperature;
     private String search_time;
-    //    提取数据
+    //    提取数据所有温度数据
     public List<Safety> getSafetyList(String time) throws InterruptedException {//给外部一个接口
         search_time=time;
         Thread thread2 = new Thread(new JoinRunnable2());
@@ -63,4 +64,43 @@ public class TemperatureListViewModel extends ViewModel {
 
         }
     }
+
+/**
+ *
+ */
+public String getCurTemperature() throws InterruptedException {
+    Thread thread3 = new Thread(new JoinRunnable3_curTemperature());
+    thread3.start();
+    thread3.join();
+    return curTemperature;
+}
+
+    class JoinRunnable3_curTemperature implements Runnable {
+        @Override
+        public void run() {
+            Log.d(TAG, "线程名字getText():" + Thread.currentThread().getName());
+            String result  ;
+            ResultSet rs = null;
+            Connection connection= MySqlDBUtils.getConn();
+            try {
+                Statement stmt = connection.createStatement();//
+                String sql="SELECT temperature FROM safety ";
+                rs = stmt.executeQuery(sql);
+                result = MySqlDBUtils.convertList(rs);//直接转化为List<T>
+                System.out.println("result:"+result);
+                Log.d("result：",result);
+                curTemperature=result.split("\"")[3];
+                rs.close();
+                stmt.close();
+                connection.close();
+                System.out.println("Database connected successfully!");
+            } catch (SQLException e) {
+                System.out.println(e);
+            } catch (Exception e) {
+                System.out.println(e);
+            }
+
+        }
+    }
+
 }
