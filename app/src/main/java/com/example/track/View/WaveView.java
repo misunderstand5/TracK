@@ -7,6 +7,7 @@ import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.Path;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.View;
 
 import com.example.track.R;
@@ -54,11 +55,11 @@ public class WaveView extends View {
     /**
      * 默认波浪1颜色
      */
-    private final int WAVE_COLOR1 = Color.parseColor("#0000ff");
+    private final int WAVE_COLOR1 = Color.parseColor("#03A9F4");
     /**
      * 默认波浪2颜色
      */
-    private final int WAVE_COLOR2 = Color.parseColor("#800000ff");
+    private final int WAVE_COLOR2 = Color.parseColor("#67C1EA");
     /**
      * 默认边框颜色
      */
@@ -252,6 +253,7 @@ public class WaveView extends View {
      * @return
      */
     public WaveView setWaveColor1(int waveColor1) {
+        Log.d("setWaveColor1","44"+waveColor1);
         this.mWaveColor1 = waveColor1;
         return this;
     }
@@ -727,7 +729,7 @@ public class WaveView extends View {
         String format1 = mFormat.format(mCurrentPrecent);
         // 绘制文字，将百分比绘制到界面。此处用的是 "50%" 的形式，可以根据需求改变格式
         double parseDouble = Double.parseDouble(format1);
-        canvas.drawText((int) (parseDouble * 100) + " %", (mWidth - mTextPaint.measureText(format1)) / 2, mHeight / 5, mTextPaint);
+        canvas.drawText((int) (parseDouble * 100) + " %", (mWidth - mTextPaint.measureText(format1)) / 2, mHeight / 2, mTextPaint);
         // 监听对象不为null并且没有达到设置高度时，调用监听方法
         if (mPrecentChangeListener != null && mChangeY != mFinalY) {
             mPrecentChangeListener.precentChange(parseDouble);

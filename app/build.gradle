@@ -36,6 +36,7 @@ dependencies {
 //    库依赖（Library dependency）: 是通过访问网址的形式将依赖库相应版本下载到本地;//在External libraries中
 //    文件依赖（File dependency）: 是将已经下载下来的依赖库一般为(.jar)文件,并且以.jar文件的形式添加依赖.//在app/libs文件中
 //     module依赖（Module dependency）: 通常项目中为了实现某个功能,或者是为了功能模块的区分,又添加了一个module,在项目中添加对此module的依赖.
+//    implementation 'com.github.javaexception:VoiceAnnouncements:v1.2'
     implementation 'androidx.appcompat:appcompat:1.3.0'
     implementation 'com.google.android.material:material:1.4.0'
     implementation 'androidx.constraintlayout:constraintlayout:2.0.4'

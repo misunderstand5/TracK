@@ -3,56 +3,70 @@
               xmlns:renj="http://schemas.android.com/apk/res-auto"
               android:layout_width="match_parent"
               android:layout_height="match_parent"
-              android:layout_margin="12dp"
+              android:background="#E8F5FB"
+              android:weightSum="3"
               android:gravity="center"
               android:orientation="vertical">
 
-    <TextView
-        android:id="@+id/tv_precent"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:gravity="center"/>
+<!--    <TextView-->
+<!--        android:id="@+id/tv_precent"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:gravity="center"/>-->
+    <LinearLayout
+        android:background="#2196F3"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="2"
+        >
+        <com.example.track.View.CirStatisticGraph
+            android:id="@+id/CirStatisticGraph"
+            android:layout_width="match_parent"
+            android:layout_height="150dp">
+        </com.example.track.View.CirStatisticGraph>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:layout_weight="1">
 
     <com.example.track.View.WaveView
         android:id="@+id/waveview"
         android:layout_width="200dp"
         android:layout_height="200dp"
         android:layout_marginTop="10dp"
-        renj:borderColor="#00ff00"
-        renj:borderWidth="2dp"
-        renj:intervalTime="3"
-        renj:precent="0.6"
+        renj:borderColor="#00BCD4"
+        renj:borderWidth="10dp"
+        renj:intervalTime="1"
         renj:showShape="circle"
-        renj:textColor="#0000ff"
-        renj:textSize="18sp"
-        renj:wave1Color="#ff0000"
-        renj:wave2Color="#80ff0000"/>
-
-    <LinearLayout
+        renj:textColor="#0984E6"
+        renj:textSize="40sp"
+       />
+<!-- renj:precent="0.8" intervalTime?? renj:precent="0.8"-->
+        <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="30dp"
-        android:orientation="horizontal">
+        android:orientation="vertical">
 
         <Button
+            android:backgroundTint="#03A9F4"
             android:id="@+id/bt_start"
-            android:layout_width="0dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="开始"/>
-
+            android:text="刷新显示"
+            />
         <Button
+            android:backgroundTint="#03A9F4"
             android:id="@+id/bt_stop"
-            android:layout_width="0dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="暂停"/>
-
-        <Button
-            android:id="@+id/bt_reset"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="重置"/>
+            android:text="数据查询"/>
+    </LinearLayout>
     </LinearLayout>
 </LinearLayout>
