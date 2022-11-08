@@ -17,7 +17,7 @@
         android:theme="@style/Theme.Track"
         android:usesCleartextTraffic="true">
         <activity
-            android:name=".CurrentTemperature"
+            android:name=".activity.CircleActivity"
             android:exported="false" />
         <activity
             android:name=".activity.RectActivity"
@@ -32,7 +32,7 @@
             android:name=".voice.WarningTemperature"
             android:exported="false" />
         <activity
-            android:name=".activity.CircleActivity"
+            android:name=".CurrentTemperature"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

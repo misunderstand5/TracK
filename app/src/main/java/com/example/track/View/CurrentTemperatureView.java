@@ -491,5 +491,8 @@ public class CurrentTemperatureView extends SurfaceView {
         canvas.drawText(text, centerPoint3.x - w / 2, centerPoint3.y + 40,
                 progressTextPaint);
     }
+    public String  getCurTemp(){
+        return curTemperature;
+    }
 }
 
